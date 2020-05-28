@@ -26,3 +26,4 @@ RUN python3.6 -m pip install pandas
 RUN python3.6 -m pip install matplotlib
 
 #to run docker run --name vexai3 -it vexaiimage
+#to copy files from host to container, do docker cp foo.txt mycontainer:/foo.txt
