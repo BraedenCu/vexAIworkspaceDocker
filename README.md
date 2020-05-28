@@ -1,6 +1,8 @@
 # vexAIworkspaceDocker
-To create and run the container: docker run --name vexai3 -it vexaiimage
-
-To copy files from host to container, do docker cp foo.txt mycontainer:/foo.txt
-
-To give docker access to usb devices run (for like a camera or something): docker run -t -i --device=/dev/ttyUSB0 ubuntu bash
+In the following I am using my container, named vexai3 
+to run docker run --name vexai3 -it vexaiimage /bin/bash
+to copy files from host to container, do docker cp foo.txt mycontainer:/foo.txt
+to run from use do: docker run -t -i --device=/dev/ttyUSB0 ubuntu bash
+to stop: docker stop vexai3
+to pause: docker pause vexai3
+to start a previously built docker container: docker start -a -i vexai3
