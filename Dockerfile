@@ -19,8 +19,8 @@ RUN apt-get install -y --force-yes python3.6
 RUN apt install -y --force-yes python3-pip
 
 #Install opencv, tensorflow, numpy, pandas, and matplotlib
-RUN python3.6 -m pip install opencv-python
-RUN python3.6 -m pip install --upgrade tensorflow
+RUN apt-get install -y --force-yes python3-opencv
+RUN python3.6 -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py3-none-any.whl
 RUN python3.6 -m pip install numpy
 RUN python3.6 -m pip install pandas
 RUN python3.6 -m pip install matplotlib
