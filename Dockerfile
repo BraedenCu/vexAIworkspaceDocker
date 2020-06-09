@@ -46,10 +46,24 @@ RUN python3.6 -m pip install --upgrade pip setuptools wheel
 RUN apt-get install -y --force-yes python3-opencv
 
 #In the following I am using my container, named vexai3 
+
 #to create the vexai3 docker image, run docker build --tag (containername)) .
-#to run docker run --name vexai3 -it vexaiimage /bin/bash
-#to copy files from host to container, do docker cp foo.txt mycontainer:/foo.txt
-#to run from usb do: docker run -t -i --device=/dev/ttyUSB0 ubuntu bash
-#to stop: docker stop vexai3
-#to pause: docker pause vexai3
+
 #to start a previously built docker container: docker start -a -i vexai3
+
+#to run docker run --name vexai3 -it vexaiimage /bin/bash
+# or to use files on current device do below
+#TO Run using files mounted on host filesystem do: docker run -v (hostdirectory):(containerDirectory) --name vexai3 -it vexaiimage /bin/bash
+
+#to copy files from host to container, do docker cp foo.txt mycontainer:/foo.txt
+
+#to run from usb do: docker run -t -i --device=/dev/ttyUSB0 ubuntu bash
+
+#to stop: docker stop vexai3
+
+#to pause: docker pause vexai3
+
+
+
+#below are commands I am saving
+#docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME --name vexai3 -it vexaiimage /bin/bash
