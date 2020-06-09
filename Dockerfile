@@ -24,16 +24,7 @@ RUN apt-get install -y --force-yes python3-dev
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python3 get-pip.py
 
-#Install opencv, tensorflow, numpy, pandas, and matplotlib
-#THESE COMMANDS WORK ON MAC, BUT NOT ALL WORK ON JETSON
-#RUN apt-get install -y --force-yes python3-opencv
-#RUN python3.6 -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py3-none-any.whl
-#RUN python3.6 -m pip install numpy
-#RUN python3.6 -m pip install pandas
-#RUN python3.6 -m pip install matplotlib
-
 #JETSON VER
-#need to install setup tools like this or a bunch of errors occour
 RUN apt-get install python3-numpy -y
 #RUN apt-get install --force-yes python3-pandas -y 
 #RUN apt-get install python3-matplotlib -y
@@ -44,6 +35,8 @@ RUN python3.6 -m pip install --upgrade pip setuptools wheel
 #dont need below command unless not using tensorflow img as base img
 #RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
 RUN apt-get install -y --force-yes python3-opencv
+#install jupyter notebook
+RUN apt install python3-notebook jupyter jupyter-core python-ipykernel  
 
 #In the following I am using my container, named vexai3 
 
@@ -64,6 +57,6 @@ RUN apt-get install -y --force-yes python3-opencv
 #to pause: docker pause vexai3
 
 
-
 #below are commands I am saving
-#docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME --name vexai3 -it vexaiimage /bin/bash
+#docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME -p 8888:8888 --name vexai3 -it vexaiimage /bin/bash
+#jupyter notebook --ip 0.0.0.0 --no-browser
