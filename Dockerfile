@@ -31,11 +31,13 @@ RUN python3 get-pip.py
 
 #JETSON VER
 #need to install setup tools like this or a bunch of errors occour
-#RUN apt-get install python3-numpy -y
+RUN apt-get install python3-numpy -y
+#RUN apt-get install --force-yes python3-pandas -y 
+#RUN apt-get install python3-matplotlib -y
 RUN python3.6 -m pip install --upgrade pip setuptools wheel
-RUN python3.6 -m pip install numpy
-RUN python3.6 -m pip install pandas
-RUN python3.6 -m pip install matplotlib
+#RUN python3.6 -m pip install numpy
+#RUN python3.6 -m pip install pandas
+#RUN python3.6 -m pip install matplotlib
 RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
 RUN apt-get install -y --force-yes python3-opencv
 
