@@ -13,14 +13,22 @@ RUN apt-get update
 
 RUN apt-get install curl
 
-RUN apt-get install -y --force-yes python3.6
+RUN apt-get install -y --force-yes python3.6.9
 
 #install pip
 RUN apt install -y --force-yes python3-pip
 
 #Install opencv, tensorflow, numpy, pandas, and matplotlib
+#THESE COMMANDS WORK ON MAC, BUT NOT ALL WORK ON JETSON
+#RUN apt-get install -y --force-yes python3-opencv
+#RUN python3.6 -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py3-none-any.whl
+#RUN python3.6 -m pip install numpy
+#RUN python3.6 -m pip install pandas
+#RUN python3.6 -m pip install matplotlib
+
+RUN apt-get install python3-opencv
 RUN apt-get install -y --force-yes python3-opencv
-RUN python3.6 -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py3-none-any.whl
+RUN python3 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
 RUN python3.6 -m pip install numpy
 RUN python3.6 -m pip install pandas
 RUN python3.6 -m pip install matplotlib
