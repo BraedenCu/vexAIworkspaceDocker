@@ -4,6 +4,9 @@
 #Jetson image
 FROM nvcr.io/nvidia/l4t-base:r32.2
 
+#JETSON IMAGE WITH TENSORFLOW 
+FROM nvcr.io/nvidia/l4t-tensorflow:r32.4.2-tf1.15-py3
+
 #NEED TO RUN AS ROOT
 USER root
 RUN echo $HOME
@@ -38,7 +41,8 @@ RUN python3.6 -m pip install --upgrade pip setuptools wheel
 #RUN python3.6 -m pip install numpy
 #RUN python3.6 -m pip install pandas
 #RUN python3.6 -m pip install matplotlib
-RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+#dont need below command unless not using tensorflow img as base img
+#RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
 RUN apt-get install -y --force-yes python3-opencv
 
 #In the following I am using my container, named vexai3 
