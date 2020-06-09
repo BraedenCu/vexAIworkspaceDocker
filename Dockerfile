@@ -1,5 +1,8 @@
 #ros image
-FROM ros:melodic
+#FROM ros:melodic
+
+#Jetson image
+FROM nvcr.io/nvidia/l4t-base:r32.2
 
 #NEED TO RUN AS ROOT
 USER root
@@ -11,9 +14,9 @@ WORKDIR = $HOME
 #install python and curl
 RUN apt-get update
 
-RUN apt-get install curl
+RUN apt-get install -y --force-yes curl
 
-RUN apt-get install -y --force-yes python3.6.9
+RUN apt-get install -y --force-yes python3.6
 
 #install pip
 RUN apt install -y --force-yes python3-pip
@@ -34,9 +37,10 @@ RUN python3.6 -m pip install pandas
 RUN python3.6 -m pip install matplotlib
 
 #In the following I am using my container, named vexai3 
+#to create the vexai3 docker image, run docker build --tag (containername)) .
 #to run docker run --name vexai3 -it vexaiimage /bin/bash
 #to copy files from host to container, do docker cp foo.txt mycontainer:/foo.txt
-#to run from use do: docker run -t -i --device=/dev/ttyUSB0 ubuntu bash
+#to run from usb do: docker run -t -i --device=/dev/ttyUSB0 ubuntu bash
 #to stop: docker stop vexai3
 #to pause: docker pause vexai3
 #to start a previously built docker container: docker start -a -i vexai3
