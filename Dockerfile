@@ -13,13 +13,13 @@ WORKDIR = $HOME
 
 #install python and curl
 RUN apt-get update
-
 RUN apt-get install -y --force-yes curl
-
 RUN apt-get install -y --force-yes python3.6
+RUN apt-get install -y --force-yes python3-dev
 
 #install pip
-RUN apt install -y --force-yes python3-pip
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+RUN python3 get-pip.py
 
 #Install opencv, tensorflow, numpy, pandas, and matplotlib
 #THESE COMMANDS WORK ON MAC, BUT NOT ALL WORK ON JETSON
@@ -29,12 +29,15 @@ RUN apt install -y --force-yes python3-pip
 #RUN python3.6 -m pip install pandas
 #RUN python3.6 -m pip install matplotlib
 
-RUN apt-get install python3-opencv
-RUN apt-get install -y --force-yes python3-opencv
-RUN python3 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+#JETSON VER
+#need to install setup tools like this or a bunch of errors occour
+RUN python3.6 -m pip install -U setuptools
 RUN python3.6 -m pip install numpy
 RUN python3.6 -m pip install pandas
 RUN python3.6 -m pip install matplotlib
+RUN python3.6 -m pip install protobuf
+RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+#RUN apt-get install -y --force-yes python3-opencv
 
 #In the following I am using my container, named vexai3 
 #to create the vexai3 docker image, run docker build --tag (containername)) .
