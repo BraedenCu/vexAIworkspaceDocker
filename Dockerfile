@@ -9,7 +9,7 @@ USER root
 RUN echo $HOME
 
 #set working directory
-WORKDIR = $HOME
+WORKDIR = /HOME
 
 #install python and curl
 RUN apt-get update
@@ -31,13 +31,13 @@ RUN python3 get-pip.py
 
 #JETSON VER
 #need to install setup tools like this or a bunch of errors occour
-RUN python3.6 -m pip install -U setuptools
+#RUN apt-get install python3-numpy -y
+RUN python3.6 -m pip install --upgrade pip setuptools wheel
 RUN python3.6 -m pip install numpy
 RUN python3.6 -m pip install pandas
 RUN python3.6 -m pip install matplotlib
-RUN python3.6 -m pip install protobuf
 RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
-#RUN apt-get install -y --force-yes python3-opencv
+RUN apt-get install -y --force-yes python3-opencv
 
 #In the following I am using my container, named vexai3 
 #to create the vexai3 docker image, run docker build --tag (containername)) .
