@@ -23,9 +23,9 @@ RUN apt-get install -y --force-yes python3-dev
 #clone my github fork of the tensorflow models repository
 RUN apt-get install -y --force-yes git
 RUN git clone https://github.com/BraedenCullenCodes/models.git
-RUN cd models
-RUN cd research
-RUN python3 setup.py install
+#RUN cd models
+#RUN cd research
+#RUN python3 setup.py install
 
 #install pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
@@ -43,7 +43,7 @@ RUN python3.6 -m pip install --upgrade pip setuptools wheel
 #RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
 RUN apt-get install -y --force-yes python3-opencv
 #install jupyter notebook
-RUN apt install python3-notebook jupyter jupyter-core python-ipykernel  
+RUN apt install -y --force-yes python3-notebook jupyter jupyter-core python-ipykernel  
 
 #In the following I am using my container, named vexai3 
 
