@@ -9,16 +9,23 @@ FROM nvcr.io/nvidia/l4t-tensorflow:r32.4.2-tf1.15-py3
 
 #NEED TO RUN AS ROOT
 USER root
-RUN echo $HOME
+RUN echo $home
 
 #set working directory
-WORKDIR = /HOME
+WORKDIR = /home
 
 #install python and curl
 RUN apt-get update
 RUN apt-get install -y --force-yes curl
 RUN apt-get install -y --force-yes python3.6
 RUN apt-get install -y --force-yes python3-dev
+
+#enter home directory then clone my github fork of the tensorflow models repository
+RUN cd home
+RUN git clone https://github.com/BraedenCullenCodes/models.git
+RUN cd models
+RUN cd research
+RUN python3 setup.py install
 
 #install pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
@@ -60,4 +67,4 @@ RUN apt install python3-notebook jupyter jupyter-core python-ipykernel
 #below are commands to setup a docker container for jupyter notebook use
 #docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME -p 8888:8888 --name vexai3 -it vexaiimage /bin/bash
 #in container:  jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
-#On host: 
+#On host: localhost:8888/tree‌​ (followed by key printed on command line)
