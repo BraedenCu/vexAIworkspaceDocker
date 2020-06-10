@@ -57,6 +57,7 @@ RUN apt install python3-notebook jupyter jupyter-core python-ipykernel
 #to pause: docker pause vexai3
 
 
-#below are commands I am saving
+#below are commands to setup a docker container for jupyter notebook use
 #docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME -p 8888:8888 --name vexai3 -it vexaiimage /bin/bash
-#jupyter notebook --ip 0.0.0.0 --no-browser
+#in container:  jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+#On host: 
