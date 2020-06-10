@@ -50,6 +50,7 @@ RUN apt install -y --force-yes python3-notebook jupyter jupyter-core python-ipyk
 
 #to create the vexai3 docker image, run docker build --tag (containername)) .
 
+#NEED -i for terminal
 #to start a previously built docker container: docker start -a -i vexai3
 
 #to run docker run --name vexai3 -it vexaiimage /bin/bash
