@@ -2,7 +2,7 @@
 #FROM ros:melodic
 
 #Jetson image
-FROM nvcr.io/nvidia/l4t-base:r32.2
+#FROM nvcr.io/nvidia/l4t-base:r32.2
 
 #JETSON IMAGE WITH TENSORFLOW 
 FROM nvcr.io/nvidia/l4t-tensorflow:r32.4.2-tf1.15-py3
