@@ -64,8 +64,13 @@ RUN apt install -y --force-yes python3-notebook jupyter jupyter-core python-ipyk
 
 #to pause: docker pause vexai3
 
+#TO PUSH TO DOCKERHUB (need to run docker login first)
+#tag image like so: docker tag firstimage YOUR_DOCKERHUB_NAME/firstimage
+#then push: docker push YOUR_DOCKERHUB_NAME/firstimage
 
 #below are commands to setup a docker container for jupyter notebook use
 #docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME -p 8888:8888 --name vexai3 -it vexaiimage /bin/bash
 #in container:  jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 #On host: localhost:8888/tree‌​ (followed by key printed on command line)
+
+
