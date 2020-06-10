@@ -34,7 +34,7 @@ RUN python3 get-pip.py
 #JETSON VER
 RUN apt-get install python3-numpy -y
 #RUN apt-get install --force-yes python3-pandas -y 
-#RUN apt-get install python3-matplotlib -y
+RUN apt-get install python3-matplotlib -y
 RUN python3.6 -m pip install --upgrade pip setuptools wheel
 #RUN python3.6 -m pip install numpy
 #RUN python3.6 -m pip install pandas
