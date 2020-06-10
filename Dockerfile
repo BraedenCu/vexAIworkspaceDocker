@@ -20,8 +20,8 @@ RUN apt-get install -y --force-yes curl
 RUN apt-get install -y --force-yes python3.6
 RUN apt-get install -y --force-yes python3-dev
 
-#enter home directory then clone my github fork of the tensorflow models repository
-RUN cd home
+#clone my github fork of the tensorflow models repository
+RUN apt-get install -y --force-yes git
 RUN git clone https://github.com/BraedenCullenCodes/models.git
 RUN cd models
 RUN cd research
