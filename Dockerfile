@@ -9,10 +9,10 @@ FROM nvcr.io/nvidia/l4t-tensorflow:r32.4.2-tf1.15-py3
 
 #NEED TO RUN AS ROOT
 USER root
-RUN echo $home
+RUN echo $HOME
 
 #set working directory
-WORKDIR = /home
+WORKDIR = /HOME
 
 #install python and curl
 RUN apt-get update
@@ -34,6 +34,7 @@ RUN python3 get-pip.py
 #JETSON VER
 RUN apt-get install python3-numpy -y
 #RUN apt-get install --force-yes python3-pandas -y 
+#need matplotlib for tensorflow object detection packages
 RUN apt-get install python3-matplotlib -y
 RUN python3.6 -m pip install --upgrade pip setuptools wheel
 #RUN python3.6 -m pip install numpy
