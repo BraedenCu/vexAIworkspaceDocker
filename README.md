@@ -10,3 +10,5 @@ to start a previously built docker container: docker start -a -i vexai3
 Use full pre-built images for the jetson: https://ngc.nvidia.com/catalog/containers/nvidia:l4t-tensorflow
 
 SUPER useful wiki: https://elinux.org/Jetson_Zoo#Docker_Containers
+
+For giving docker access to gpu: https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container
