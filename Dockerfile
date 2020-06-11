@@ -79,3 +79,18 @@ EXPOSE 8000
 
 #docker run -p 8000:8000 --name vexai3 -it vexaiimage /bin/bash
 
+#jupyter notebook --ip 192.168.86.236:8000 --no-browser --allow-root
+
+#to setup jupyter notebook on jetson
+
+#jupyter notebook --generate-config
+#apt install nano
+#nano /root/.jupyter/jupyter_notebook_config.py
+#  add line: c.NotebookApp.ip = '*' 
+#  save file
+#jupyter notebook --no-browser --allow-root
+#you should see something like: http://[all ip addresses on your system]:8888/?token=6a162485c576805cceb0a0ae98a2d4553ae4bf21fa18ec01
+#paste it into the browser with the jetson ip address
+
+#update: need --gpus all in order to give docker access to gpu
+#sudo docker run --name vexai --gpus all -t nvidia/cuda --network host -it vexaiimage2 /bin/bash
