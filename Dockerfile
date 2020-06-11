@@ -44,7 +44,9 @@ RUN python3.6 -m pip install --upgrade pip setuptools wheel
 #RUN python3.6 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
 RUN apt-get install -y --force-yes python3-opencv
 #install jupyter notebook
-RUN apt install -y --force-yes python3-notebook jupyter jupyter-core python-ipykernel  
+RUN apt install -y --force-yes python3-notebook jupyter jupyter-core python-ipykernel 
+
+EXPOSE 8000
 
 #In the following I am using my container, named vexai3 
 
@@ -71,7 +73,9 @@ RUN apt install -y --force-yes python3-notebook jupyter jupyter-core python-ipyk
 
 #below are commands to setup a docker container for jupyter notebook use
 #docker run -v /Users/bruh/Development/docker/mounts/mountForFirstModel:/HOME -p 8888:8888 --name vexai3 -it vexaiimage /bin/bash
-#in container:  jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+#in container:  jupyter notebook --ip 0.0.0.0:8000 --no-browser --allow-root
 #On host: localhost:8888/tree‌​ (followed by key printed on command line)
 
+
+#docker run -p 8000:8000 --name vexai3 -it vexaiimage /bin/bash
 
